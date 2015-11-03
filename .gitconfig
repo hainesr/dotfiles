@@ -1,0 +1,25 @@
+[user]
+	name = Robert Haines
+	email = rhaines@manchester.ac.uk
+[github]
+	user = hainesr
+[core]
+	autocrlf = input
+	safecrlf = true
+	editor = vim
+	excludesfile = ~/.gitignore
+[rerere]
+	enabled = true
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[merge]
+	tool = p4merge
+	log = true
+[push]
+	default = simple
+[diff]
+	submodule = log
+[credential]
+	helper = cache

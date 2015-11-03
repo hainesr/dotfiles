@@ -1,0 +1,16 @@
+# editor backup files
+*~
+*.bak
+
+# compiled files
+*.class
+*.o
+*.so
+*.a
+*.pyc
+
+# ide config files, &c.
+.project
+.buildpath
+.idea
+.rvmrc
