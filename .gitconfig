@@ -8,6 +8,7 @@
 	safecrlf = true
 	editor = vim
 	excludesfile = ~/.gitignore
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 [rerere]
 	enabled = true
 [color]
@@ -23,3 +24,5 @@
 	submodule = log
 [credential]
 	helper = cache
+[apply]
+	whitespace = fix
