@@ -7,6 +7,12 @@
 # BSD Licenced. See LICENCE for details.
 #
 
+# Some cd aliases for easier navigation.
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias -- -='cd -'
+
 # Always use colour for ls and friends.
 alias ll='ls -lhF --color'
 alias la='ls -AF --color'
