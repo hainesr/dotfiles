@@ -22,6 +22,7 @@
 	default = simple
 [diff]
 	submodule = log
+	renames = copies
 [credential]
 	helper = cache
 [apply]
