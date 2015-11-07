@@ -42,3 +42,6 @@
 
 	# Amend the last commit
 	amend = commit --amend
+
+	# Interactive rebase using the given number of previous commits
+	ri = "!r() { git rebase -i HEAD~$1; }; r"
