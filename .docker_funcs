@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Bash docker functions.
+#
+# Robert Haines.
+# Inspired by https://github.com/jfrazelle/dotfiles/blob/master/.dockerfunc
+#
+# BSD Licenced. See LICENCE for details.
+#
+
+# Cleanup helper.
+docker_cleanup() {
+  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
