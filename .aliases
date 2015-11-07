@@ -39,6 +39,9 @@ alias grep='grep -n --color=auto'
 alias dos2unix='fromdos'
 alias unix2dos='todos'
 
+# I only ever use gitk --all.
+alias gitk='gitk --all'
+
 # Allow aliases to be sudoed.
 # See: https://github.com/jfrazelle/dotfiles/blob/master/.aliases#L45
 alias sudo='sudo '
