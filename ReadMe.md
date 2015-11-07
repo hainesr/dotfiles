@@ -3,7 +3,7 @@
 
 ### Usage
 
-*Use at your own risk, YMMV, &c.*
+To install the dotfiles in ```$HOME``` run ```make``` in the root of this repository.
 
 ### Licence
 
