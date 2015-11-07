@@ -39,9 +39,6 @@ alias grep='grep -n --color=auto'
 alias dos2unix='fromdos'
 alias unix2dos='todos'
 
-# I like docker to need sudo (for now) but don't like typing sudo.
-alias docker='sudo docker'
-
 # Allow aliases to be sudoed.
 # See: https://github.com/jfrazelle/dotfiles/blob/master/.aliases#L45
 alias sudo='sudo '
