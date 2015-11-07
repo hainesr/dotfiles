@@ -27,3 +27,9 @@
 	helper = cache
 [apply]
 	whitespace = fix
+[alias]
+	# Some of these are nicked from
+	# https://github.com/jfrazelle/dotfiles/blob/master/.gitconfig
+
+	# View the current working tree status using the short format
+	s = status -s
