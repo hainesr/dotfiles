@@ -19,7 +19,7 @@ jekyll() {
   docker run -it --rm \
     --name jekyll \
     --volume=$(pwd):/srv/jekyll \
-    -p 4000 \
+    -p 4000:4000 \
     jekyll/jekyll:pages
 }
 
