@@ -3,7 +3,7 @@
 
 ### Usage
 
-To install the dotfiles in ```$HOME``` run ```make``` in the root of this repository.
+To install the dotfiles in `$HOME` run `make` in the root of this repository.
 
 ### Licence
 
