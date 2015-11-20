@@ -27,7 +27,8 @@ jekyll() {
 p4merge() {
   docker run -it --rm \
     --name p4merge \
-    --volume=$HOME/.p4merge:/root/.p4merge \
+    --volume=$HOME/.config/p4merge:/home/p4v/.p4merge \
+    --volume=$HOME/.cache:/home/p4v/.cache \
     --volume=$(pwd):/opt/work \
     --volume=/tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=unix$DISPLAY \
