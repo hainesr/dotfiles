@@ -34,4 +34,4 @@ p4merge() {
     -e DISPLAY=unix$DISPLAY \
     -u $UID \
     hainesr/p4v /opt/p4v/bin/p4merge "$@"
-} > /dev/null 2>&1
+}
