@@ -23,6 +23,15 @@ jekyll() {
     jekyll/jekyll:pages
 }
 
+# mencoder
+mencoder() {
+  docker run -it --rm \
+    --name mencoder \
+    --volume=$(pwd):/home/mencoder \
+    -u $UID \
+    hainesr/mencoder "$@"
+}
+
 # p4merge
 p4merge() {
   docker run -it --rm \
