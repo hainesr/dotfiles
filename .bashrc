@@ -19,6 +19,10 @@ shopt -s histappend
 HISTSIZE=5000
 HISTFILESIZE=10000
 
+# update the history file immediately but allow each shell to manage its own
+# separate history
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
