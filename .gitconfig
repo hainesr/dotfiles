@@ -8,7 +8,7 @@
 	safecrlf = true
 	editor = vim
 	excludesfile = ~/.gitignore
-	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space,cr-at-eol
 [rerere]
 	enabled = true
 [color]
