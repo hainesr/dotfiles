@@ -27,7 +27,7 @@ jekyll() {
 mencoder() {
   docker run -it --rm \
     --name mencoder \
-    --volume=$(pwd):/home/mencoder \
+    --volume=$(pwd):/home/mencoder/video \
     -u $UID \
     hainesr/mencoder "$@"
 }
