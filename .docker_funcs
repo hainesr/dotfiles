@@ -44,3 +44,20 @@ p4merge() {
     -u $UID \
     hainesr/p4v p4merge "$@"
 }
+
+xnview() {
+  local pics_dir=$(pwd)
+  if [[ -d "$1" && -r "$1" ]]; then
+    pics_dir="$1"
+  fi
+
+  docker run -it --rm \
+    --name xnview \
+    --volume=$HOME/.config/.xnviewmp:/home/xnview/.config/.xnviewmp \
+    --volume=$HOME/.cache:/home/xnview/.cache \
+    --volume="$pics_dir":/home/xnview/pics \
+    --volume=/tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    -u $UID \
+    hainesr/xnview xnview
+}
