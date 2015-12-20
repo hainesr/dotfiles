@@ -8,10 +8,16 @@
 # BSD Licenced. See LICENCE for details.
 #
 
-# Cleanup helper.
-docker_cleanup() {
-  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+# Add a cleanup helper to docker.
+docker() {
+  local real_docker=$(which docker)
+
+  if [[ $1 = 'cleanup' ]]; then
+    $real_docker rm -v $($real_docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    $real_docker rmi $($real_docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+  else
+    $real_docker "$@"
+  fi
 }
 
 # Jekyll
