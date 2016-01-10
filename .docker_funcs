@@ -9,14 +9,13 @@
 #
 
 # Add a cleanup helper to docker.
+__real_docker=$(which docker)
 docker() {
-  local real_docker=$(which docker)
-
   if [[ $1 = 'cleanup' ]]; then
-    $real_docker rm -v $($real_docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-    $real_docker rmi $($real_docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+    $__real_docker rm -v $($__real_docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    $__real_docker rmi $($__real_docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
   else
-    $real_docker "$@"
+    $__real_docker "$@"
   fi
 }
 
