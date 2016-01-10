@@ -20,6 +20,22 @@ docker() {
   fi
 }
 
+# A generic helper for running tools in the document-processing image
+__doc_proc() {
+  docker run -it --rm \
+    --volume=$(pwd):/root/work \
+    --volume=/tmp:/tmp \
+    -u $UID \
+    -e USER \
+    hainesr/document-processing "$@"
+}
+
+# And a load of functions to run those document-processing tools
+latex() { __doc_proc latex "$@"; }
+latexmk() { __doc_proc latexmk "$@"; }
+pdflatex() { __doc_proc pdflatex "$@"; }
+pandoc() { __doc_proc pandoc "$@"; }
+
 # Jekyll
 jekyll() {
   docker run -it --rm \
