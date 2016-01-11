@@ -30,6 +30,7 @@ __doc_proc() {
 }
 
 # And a load of functions to run those document-processing tools
+bibtex() { __doc_proc bibtex "$@"; }
 latex() { __doc_proc latex "$@"; }
 latexmk() { __doc_proc latexmk "$@"; }
 pdflatex() { __doc_proc pdflatex "$@"; }
