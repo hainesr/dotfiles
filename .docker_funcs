@@ -83,3 +83,8 @@ xnview() {
     -u $UID \
     hainesr/xnview xnview
 } > /dev/null
+
+# Export all the functions so that they can be used in e.g. make.
+for func in {__doc_proc,bibtex,latex,latexmk,pdflatex,pandoc,jekyll,mencoder,p4merge,xnview}; do
+  export -f $func
+done
