@@ -20,7 +20,7 @@ docker() {
 }
 
 # A generic helper for running tools in the document-processing image
-__doc_proc() {
+compile_doc() {
   docker run -it --rm \
     --volume=$(pwd):/root/work \
     --volume=/tmp:/tmp \
@@ -30,11 +30,11 @@ __doc_proc() {
 }
 
 # And a load of functions to run those document-processing tools
-bibtex() { __doc_proc bibtex "$@"; }
-latex() { __doc_proc latex "$@"; }
-latexmk() { __doc_proc latexmk "$@"; }
-pdflatex() { __doc_proc pdflatex "$@"; }
-pandoc() { __doc_proc pandoc "$@"; }
+bibtex() { compile_doc bibtex "$@"; }
+latex() { compile_doc latex "$@"; }
+latexmk() { compile_doc latexmk "$@"; }
+pdflatex() { compile_doc pdflatex "$@"; }
+pandoc() { compile_doc pandoc "$@"; }
 
 # Jekyll
 jekyll() {
@@ -85,6 +85,6 @@ xnview() {
 } > /dev/null
 
 # Export all the functions so that they can be used in e.g. make.
-for func in {__doc_proc,bibtex,latex,latexmk,pdflatex,pandoc,jekyll,mencoder,p4merge,xnview}; do
+for func in {compile_doc,bibtex,latex,latexmk,pdflatex,pandoc,jekyll,mencoder,p4merge,xnview}; do
   export -f $func
 done
