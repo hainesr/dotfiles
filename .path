@@ -1,7 +1,7 @@
 
 # add some other paths, if they exist, keeping the user's private bin last
 for path in {/opt/software/eclipse,"$HOME/bin"}; do
-  if [ -d $path ] ; then
+  if [ -d "$path" ] ; then
     PATH="$path:$PATH"
   fi
 done
