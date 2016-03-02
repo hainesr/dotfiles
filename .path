@@ -1,7 +1,10 @@
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# add some other paths, if they exist, keeping the user's private bin last
+for path in {/opt/software/eclipse,"$HOME/bin"}; do
+  if [ -d $path ] ; then
+    PATH="$path:$PATH"
+  fi
+done
+unset path
 
 export PATH
