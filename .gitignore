@@ -10,7 +10,6 @@
 *.pyc
 
 # ide config files, &c.
-.project
 .buildpath
 .idea
 .rvmrc
