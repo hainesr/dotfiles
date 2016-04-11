@@ -13,3 +13,7 @@
 .buildpath
 .idea
 .rvmrc
+
+# Dropbox config
+.dropbox
+desktop.ini
