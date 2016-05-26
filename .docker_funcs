@@ -23,7 +23,6 @@ docker() {
 anaconda() {
   docker run -it --rm \
     --name anaconda \
-    --volume=$HOME:/root:ro \
     --volume=$(pwd):/opt/data \
     --volume=/tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=unix$DISPLAY \
