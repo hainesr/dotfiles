@@ -1,10 +1,21 @@
+# Keep the user's private bin the last of the prepended paths.
+prepend=(/opt/software/eclipse "$HOME/bin")
+append=()
 
-# add some other paths, if they exist, keeping the user's private bin last
-for path in {/opt/software/eclipse,"$HOME/bin"}; do
+# Add paths to the front of PATH, if they exist.
+for path in ${prepend[@]}; do
   if [ -d "$path" ] ; then
     PATH="$path:$PATH"
   fi
 done
-unset path
+
+# Add paths to the end of PATH, if they exist.
+for path in ${append[@]}; do
+  if [ -d "$path" ] ; then
+    PATH="$PATH:$path"
+  fi
+done
+
+unset path prepend append
 
 export PATH
