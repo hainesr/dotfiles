@@ -1,6 +1,8 @@
 # Keep the user's private bin the last of the prepended paths.
 prepend=(/opt/software/eclipse "$HOME/bin")
-append=()
+
+# RVM should be the last of the appended paths.
+append=("$HOME/.rvm/bin")
 
 # Add paths to the front of PATH, if they exist.
 for path in ${prepend[@]}; do
