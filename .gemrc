@@ -1,0 +1,2 @@
+# Don't build docs for any gems that are installed
+gem: --no-document
