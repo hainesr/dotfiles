@@ -1,3 +1,6 @@
+# do not commit .extra because it is for private configuration.
+.extra
+
 # editor backup files
 *~
 *.bak
