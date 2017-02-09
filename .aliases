@@ -14,9 +14,9 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 
 # Always use colour for ls and friends.
-alias ll='ls -lhF --color'
-alias la='ls -AF --color'
-alias ls='ls --color'
+alias ll='ls -lh --color'
+alias la='ls -A --color'
+alias ls='ls -F --color'
 
 # Human readable numbers for df and du.
 alias df='df -h'
