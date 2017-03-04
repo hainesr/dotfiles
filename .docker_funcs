@@ -42,6 +42,7 @@ compile_doc() {
 
 # And a load of functions to run those document-processing tools
 bibtex() { compile_doc bibtex "$@"; }
+epstopdf() { compile_doc epstopdf "$@"; }
 latex() { compile_doc latex "$@"; }
 latexmk() { compile_doc latexmk "$@"; }
 pdflatex() { compile_doc pdflatex "$@"; }
@@ -97,6 +98,6 @@ xnview() {
 } > /dev/null
 
 # Export all the functions so that they can be used in e.g. make.
-for func in {anaconda,compile_doc,bibtex,latex,latexmk,pdflatex,pandoc,jekyll,mencoder,p4merge,xnview}; do
+for func in {anaconda,compile_doc,bibtex,epstopdf,latex,latexmk,pdflatex,pandoc,jekyll,mencoder,p4merge,xnview}; do
   export -f $func
 done
