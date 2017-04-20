@@ -1,11 +1,11 @@
-# My dotfiles
+# My dotfiles and other $HOME configuration
 ## Robert Haines
 
 ### Usage
 
-To install the dotfiles in `$HOME` run `make` in the root of this repository.
+To install these files in `$HOME` run `make` in the root of this repository. You can install just the dotfiles with `make dots` and just the bin files with `make bins`. The `$HOME/bin` directory will be created if needs be.
 
-If you have any sensitive information (for example access keys, etc) you can put them in a file called `$HOME\.extra` and the `.bash_profile` in this setup will pull it in automatically. *Do not check in `.extra`!*
+If you have any sensitive information (for example access keys, etc) you can put them in a file called `$HOME\.extra` and the `.bash_profile` in this setup will pull it in automatically. You can create a file called `dot/extra` in this repository directory and it will be installed with the other dotfiles. ***Do not check in `.extra` or `dot/extra`!***
 
 ### Software/package specific notes
 
