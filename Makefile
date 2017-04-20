@@ -13,7 +13,8 @@ all: bins dots
 dots:
 	for file in $(shell git ls-files --exclude-standard -- .[a-z]*); do \
 		full=$$(readlink -f $$file); \
-		ln -sfn $$full $(HOME)/$$file; \
+		name=$$(basename $$file); \
+		ln -sfn $$full $(HOME)/$$name; \
 	done
 
 bins:
