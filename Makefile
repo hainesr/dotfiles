@@ -6,6 +6,8 @@
 # BSD Licenced. See LICENCE for details.
 #
 
+bin-dir=$(HOME)/bin
+
 PHONY: all bins dots
 
 all: bins dots
@@ -17,7 +19,10 @@ dots:
 		ln -sfn $$full $(HOME)/.$$name; \
 	done
 
-bins:
+$(bin-dir):
+	mkdir $(bin-dir)
+
+bins: | $(bin-dir)
 	for file in $(shell git ls-files --exclude-standard -- bin/*); do \
 		full=$$(readlink -f $$file); \
 		name=$$(basename $$file); \
