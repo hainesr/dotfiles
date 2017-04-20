@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# For each line of input (stdin) output a dot. This is useful for monitoring
+# the progress of a long running operation, without seeing all of its output
+# streaming past.
+#
+# Usage: some-script-with-lots-of-output | progress
+#
+
+while read line; do
+  echo -n .
+done < /dev/stdin
+echo
