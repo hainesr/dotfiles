@@ -1,22 +1,2 @@
-# do not commit .extra because it is for private configuration.
-.extra
-
-# editor backup files
-*~
-*.bak
-
-# compiled files
-*.class
-*.o
-*.so
-*.a
-*.pyc
-
-# ide config files, &c.
-.buildpath
-.idea
-.rvmrc
-
-# Dropbox config
-.dropbox
-desktop.ini
+# do not commit dot/extra because it is for private configuration only.
+dot/extra

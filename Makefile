@@ -11,10 +11,10 @@ PHONY: all bins dots
 all: bins dots
 
 dots:
-	for file in $(shell git ls-files --exclude-standard -- .[a-z]*); do \
+	for file in $(shell git ls-files --exclude-standard -- dot/*); do \
 		full=$$(readlink -f $$file); \
 		name=$$(basename $$file); \
-		ln -sfn $$full $(HOME)/$$name; \
+		ln -sfn $$full $(HOME)/.$$name; \
 	done
 
 bins:
