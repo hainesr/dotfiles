@@ -1,13 +1,19 @@
 #!/bin/bash
 #
-# For each line of input (stdin) output a dot. This is useful for monitoring
+# For each line of input (stdin) output a 'dot'. This is useful for monitoring
 # the progress of a long running operation, without seeing all of its output
 # streaming past.
 #
-# Usage: some-script-with-lots-of-output | progress
+# The 'dot' can be specified as the first parameter but defaults to '.'. If
+# you want to use a character that has special significance in a shell
+# environment  - such as #, &, |, *, \, and so on - then use quotes, e.g. '*'.
+#
+# Usage: some-script-with-lots-of-output | progress [dot]
 #
 
+dot=${1:-.}
+
 while read line; do
-  echo -n .
+  echo -n "$dot"
 done < /dev/stdin
 echo
