@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# This is needed for the p4merge docker image to work correctly (via the
+# p4merge docker function in .docker_funcs) with git mergetool.
+#
+
+p4merge "$@"
