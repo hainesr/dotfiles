@@ -13,6 +13,17 @@ If you have any sensitive information (for example access keys, etc) you can put
 
 This is needed for the p4merge docker image to work correctly (via the p4merge docker function in `.docker_funcs`) with `git mergetool`.
 
+#### progress
+
+For each line of input (stdin) output a 'dot'. This is useful for monitoring the progress of a long running operation, without seeing all of its output streaming past.
+
+The 'dot' can be specified as the first parameter but defaults to '.'. If you want to use a character that has special significance in a shell environment  - such as `#`, `&`, `|`, `*`, `\`, and so on - then use quotes, e.g. '`*`'.
+
+*Usage:*
+```shell
+$ some-script-with-lots-of-output | progress [dot]
+```
+
 ### Software/package specific notes
 
 #### RVM: Ruby Version Manager
