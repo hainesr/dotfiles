@@ -1,7 +1,7 @@
 # My dotfiles and other $HOME configuration
 ## Robert Haines
 
-### Usage
+### Setup
 
 To install these files in `$HOME` run `make` in the root of this repository. You can install just the dotfiles with `make dots` and just the bin files with `make bins`. The `$HOME/bin` directory will be created if needs be.
 
