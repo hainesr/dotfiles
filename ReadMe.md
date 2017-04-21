@@ -7,6 +7,12 @@ To install these files in `$HOME` run `make` in the root of this repository. You
 
 If you have any sensitive information (for example access keys, etc) you can put them in a file called `$HOME\.extra` and the `.bash_profile` in this setup will pull it in automatically. You can create a file called `dot/extra` in this repository directory and it will be installed with the other dotfiles. ***Do not check in `.extra` or `dot/extra`!***
 
+### Items in the `bin` directory
+
+#### p4merge
+
+This is needed for the p4merge docker image to work correctly (via the p4merge docker function in `.docker_funcs`) with `git mergetool`.
+
 ### Software/package specific notes
 
 #### RVM: Ruby Version Manager
