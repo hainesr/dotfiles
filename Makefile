@@ -7,10 +7,11 @@
 #
 
 bin-dir=$(HOME)/bin
+docker-execs={jekyll,mencoder,p4merge,xnview}
 
-PHONY: all bins dots
+PHONY: all bins docker-bins dots
 
-all: bins dots
+all: bins docker-bins dots
 
 dots:
 	for file in $(shell git ls-files --exclude-standard -- dot/*); do \
@@ -27,4 +28,10 @@ bins: | $(bin-dir)
 		full=$$(readlink -f $$file); \
 		name=$$(basename $$file); \
 		cp -a $$full $(HOME)/bin/$$name; \
+	done
+
+docker-bins: | $(bin-dir)
+	for prog in $(docker-execs); do \
+		sed "s/##program_name##/$$prog/" src/bin_template > $(bin-dir)/$$prog; \
+		chmod 755 $(bin-dir)/$$prog; \
 	done
