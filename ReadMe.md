@@ -9,9 +9,11 @@ If you have any sensitive information (for example access keys, etc) you can put
 
 ### Items in the `bin` directory
 
-#### p4merge
+#### Docker executable wrappers
 
-This is needed for the p4merge docker image to work correctly (via the p4merge docker function in `.docker_funcs`) with `git mergetool`.
+These are needed for the executables in docker images to work correctly (via their exported shell functions in `.docker_funcs`). They are required in situations where programs need to be run outside of a fully initialised shell environment, e.g. `p4merge` being called from `git mergetool`.
+
+Current wrappers are: `jekyll`, `mencoder`, `p4merge`, `xnview`.
 
 #### progress
 
