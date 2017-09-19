@@ -1,4 +1,4 @@
-# Keep the user's private bin the last of the prepended paths.
+# The user's private bin should be the last of the prepended paths.
 prepend=(/opt/software/eclipse /usr/local/go/bin "$HOME/bin")
 
 # RVM should be the last of the appended paths.
