@@ -2,12 +2,18 @@
 # Application specific path configuration should go here.
 #
 
+# Go.
+
+GOPATH="$HOME/work/projects/go"
+
+export GOPATH
+
 #
 # Manage the main PATH variable here.
 #
 
 # The user's private bin should be the last of the prepended paths.
-prepend=(/opt/software/eclipse /usr/local/go/bin "$HOME/bin")
+prepend=(/opt/software/eclipse "$GOPATH/bin" /usr/local/go/bin "$HOME/bin")
 
 # RVM should be the last of the appended paths.
 append=("$HOME/.rvm/bin")
