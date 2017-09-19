@@ -1,3 +1,11 @@
+#
+# Application specific path configuration should go here.
+#
+
+#
+# Manage the main PATH variable here.
+#
+
 # The user's private bin should be the last of the prepended paths.
 prepend=(/opt/software/eclipse /usr/local/go/bin "$HOME/bin")
 
