@@ -38,9 +38,14 @@ $ some-script-with-lots-of-output | progress [dot]
 
 See the [RVM installation instructions][rvminstall] for more details.
 
+#### npm: Node Package Manager
+
+[npm][npm] is set up so that global packages are installed in the `~/.node` directory by default. `~/.node/bin` is also added to `PATH` once it exists.
+
 ### Licence
 
 BSD. See LICENCE for details.
 
 [rvm]: https://rvm.io/
 [rvminstall]: https://rvm.io/rvm/install
+[npm]: https://www.npmjs.com/
