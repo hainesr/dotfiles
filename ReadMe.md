@@ -30,13 +30,9 @@ $ some-script-with-lots-of-output | progress [dot]
 
 #### RVM: Ruby Version Manager
 
-[RVM][rvm] integration is included in these dotfiles so when installing it you don't need to edit `.bash_profile` or `.bashrc`. To stop this happening automatically, install RVM like this:
+There is now an official [package for Ubuntu][rvmubuntu]. An `rvmrc` configuration file is included in these dot files.
 
-```
-\curl -sSL https://get.rvm.io | bash -s stable -- --ignore-dotfiles
-```
-
-See the [RVM installation instructions][rvminstall] for more details.
+See the [RVM website][rvm] for more details.
 
 #### npm: Node Package Manager
 
@@ -47,5 +43,5 @@ See the [RVM installation instructions][rvminstall] for more details.
 BSD. See LICENCE for details.
 
 [rvm]: https://rvm.io/
-[rvminstall]: https://rvm.io/rvm/install
+[rvmubuntu]: https://github.com/rvm/ubuntu_rvm
 [npm]: https://www.npmjs.com/
