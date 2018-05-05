@@ -7,7 +7,7 @@
 #
 
 bin-dir=$(HOME)/bin
-docker-execs={jekyll,mencoder,p4merge,xnview}
+docker-execs=jekyll mencoder p4merge xnview
 
 PHONY: all bins docker-bins dots
 
