@@ -22,7 +22,7 @@ export NODE_PATH
 prepend=(/opt/software/eclipse "$GOPATH/bin" /usr/local/go/bin "$HOME/.node/bin" "$HOME/bin")
 
 # RVM should be the last of the appended paths.
-append=("$HOME/.rvm/bin")
+append=("$HOME/.local/bin" "$HOME/.rvm/bin")
 
 # Add paths to the front of PATH, if they exist.
 for path in ${prepend[@]}; do
