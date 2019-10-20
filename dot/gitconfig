@@ -23,6 +23,7 @@
 [diff]
 	submodule = log
 	renames = copies
+	noprefix = true
 [credential]
 	helper = cache
 [apply]
