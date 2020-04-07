@@ -39,7 +39,8 @@ alias ssh='ssh -2 -A -Y'
 alias grep='grep -n --color=auto'
 
 # Use bash as the shell for make so we can use the fancy docker functions.
-alias make='make -e SHELL=/bin/bash'
+#alias make='make -e SHELL=/bin/bash'
+# Disabled for now as it breaks some build systems, e.g. Linux kernel!
 
 # I like the old ways.
 alias dos2unix='fromdos'
