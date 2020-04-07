@@ -32,8 +32,8 @@ alias rmf='rm -f'
 # Don't go nuts, ping.
 alias ping='ping -c 4'
 
-# Make ssh a bit more secure and do the X forwarding thing.
-alias ssh='ssh -2 -Y'
+# Make ssh a bit more secure and do the Agent and X forwarding thing.
+alias ssh='ssh -2 -A -Y'
 
 # Always colour grep.
 alias grep='grep -n --color=auto'
