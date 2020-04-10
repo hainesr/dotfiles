@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# A short script to clean up old docker containers and images.
+
+docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null &&
+docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null

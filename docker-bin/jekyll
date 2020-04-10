@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# This is a place-holder to run jekyll which is installed inside a
+# docker image. This workaround is needed for use by programs/scripts
+# that are not run within a full shell environment.
+
+docker run -it \
+           --rm \
+           --name jekyll \
+           --volume=$PWD:/srv/jekyll \
+           -u $UID \
+           -p 4000:4000 \
+           hainesr/jekyll "$@"

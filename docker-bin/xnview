@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# This is a place-holder to run xnview which is installed inside a
+# docker image. This workaround is needed for use by programs/scripts
+# that are not run within a full shell environment.
+
+pics_dir=$PWD
+if [[ -d "$1" && -r "$1" ]]; then
+  pics_dir=$(readlink -m "$1")
+fi
+
+docker run -it \
+           --rm \
+           --name xnview \
+           --volume=$HOME/.config/.xnviewmp:/home/xnview/.config/.xnviewmp \
+           --volume=$HOME/.cache:/home/xnview/.cache \
+           --volume="$pics_dir":/home/xnview/pics \
+           --volume=/tmp/.X11-unix:/tmp/.X11-unix \
+           -e DISPLAY=unix$DISPLAY \
+           -u $UID \
+           hainesr/xnview xnview
+
+unset pics_dir

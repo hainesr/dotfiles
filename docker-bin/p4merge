@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# This is a place-holder to run p4merge which is installed inside a
+# docker image. This workaround is needed for use by programs/scripts
+# that are not run within a full shell environment.
+
+docker run -it \
+           --rm \
+           --name p4merge \
+           --volume=$HOME/.config/p4merge:/home/p4v/.p4merge \
+           --volume=$HOME/.cache:/home/p4v/.cache \
+           --volume=$PWD:/opt/work \
+           --volume=/tmp/.X11-unix:/tmp/.X11-unix \
+           -e DISPLAY=unix$DISPLAY \
+           -u $UID \
+           hainesr/p4v p4merge "$@"

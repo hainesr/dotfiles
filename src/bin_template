@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# This is a place-holder to run an executable (in this case '##program_name##')
-# which is installed inside a docker image. This workaround is needed for use
-# by programs/scripts that are not run within a full shell environment.
-
-##program_name## "$@"

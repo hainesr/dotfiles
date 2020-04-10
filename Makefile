@@ -7,7 +7,6 @@
 #
 
 bin-dir=$(HOME)/bin
-docker-execs=jekyll mencoder p4merge xnview
 
 PHONY: all bins docker-bins dots
 
@@ -26,7 +25,4 @@ bins:
 
 docker-bins:
 	install -v -m755 -d "$(bin-dir)"
-	for prog in $(docker-execs); do \
-		sed "s/##program_name##/$$prog/" src/bin_template > $(bin-dir)/$$prog; \
-		chmod 755 $(bin-dir)/$$prog; \
-	done
+	install -v -m755 docker-bin/* "$(bin-dir)"

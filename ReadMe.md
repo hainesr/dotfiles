@@ -11,9 +11,13 @@ If you have any sensitive information (for example access keys, etc) you can put
 
 #### Docker executable wrappers
 
-These are needed for the executables in docker images to work correctly (via their exported shell functions in `.docker_funcs`). They are required in situations where programs need to be run outside of a fully initialised shell environment, e.g. `p4merge` being called from `git mergetool`.
+These are needed for the executables in docker images to work correctly. They are required in situations where programs need to be run outside of a fully initialised shell environment, e.g. `p4merge` being called from `git mergetool`.
 
-Current wrappers are: `jekyll`, `mencoder`, `p4merge`, `xnview`.
+Current wrappers are: `anaconda`, `jekyll`, `mencoder`, `p4merge`, `xnview`.
+
+#### docker-cleanup
+
+A convenience script to clean up old/stale containers and images.
 
 #### progress
 
