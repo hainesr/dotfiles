@@ -22,11 +22,7 @@ dots:
 
 bins:
 	install -v -m755 -d "$(bin-dir)"
-	for file in $(shell git ls-files --exclude-standard -- bin/*); do \
-		full=$$(readlink -f $$file); \
-		name=$$(basename $$file); \
-		cp -a $$full $(HOME)/bin/$$name; \
-	done
+	install -v -m755 bin/* "$(bin-dir)"
 
 docker-bins:
 	install -v -m755 -d "$(bin-dir)"
