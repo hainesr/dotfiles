@@ -20,17 +20,16 @@ dots:
 		ln -sfn $$full $(HOME)/.$$name; \
 	done
 
-$(bin-dir):
-	mkdir $(bin-dir)
-
-bins: | $(bin-dir)
+bins:
+	install -v -m755 -d "$(bin-dir)"
 	for file in $(shell git ls-files --exclude-standard -- bin/*); do \
 		full=$$(readlink -f $$file); \
 		name=$$(basename $$file); \
 		cp -a $$full $(HOME)/bin/$$name; \
 	done
 
-docker-bins: | $(bin-dir)
+docker-bins:
+	install -v -m755 -d "$(bin-dir)"
 	for prog in $(docker-execs); do \
 		sed "s/##program_name##/$$prog/" src/bin_template > $(bin-dir)/$$prog; \
 		chmod 755 $(bin-dir)/$$prog; \
