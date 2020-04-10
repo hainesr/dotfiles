@@ -28,12 +28,6 @@ $ some-script-with-lots-of-output | progress [dot]
 
 ### Software/package specific notes
 
-#### RVM: Ruby Version Manager
-
-There is now an official [package for Ubuntu][rvmubuntu]. An `rvmrc` configuration file is included in these dot files.
-
-See the [RVM website][rvm] for more details.
-
 #### npm: Node Package Manager
 
 [npm][npm] is set up so that global packages are installed in the `~/.node` directory by default. `~/.node/bin` is also added to `PATH` once it exists.
@@ -42,6 +36,4 @@ See the [RVM website][rvm] for more details.
 
 BSD. See LICENCE for details.
 
-[rvm]: https://rvm.io/
-[rvmubuntu]: https://github.com/rvm/ubuntu_rvm
 [npm]: https://www.npmjs.com/

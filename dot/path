@@ -21,8 +21,8 @@ export NODE_PATH
 # The user's private bin should be the last of the prepended paths.
 prepend=(/opt/software/eclipse "$GOPATH/bin" /usr/local/go/bin "$HOME/.node/bin" "$HOME/bin")
 
-# RVM should be the last of the appended paths.
-append=("$HOME/.local/bin" "$HOME/.rvm/bin")
+# The user's local config bin should be the last of the appended paths.
+append=("$HOME/.local/bin")
 
 # Add paths to the front of PATH, if they exist.
 for path in ${prepend[@]}; do
