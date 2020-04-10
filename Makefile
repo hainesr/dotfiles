@@ -8,7 +8,7 @@
 
 bin-dir=$(HOME)/bin
 
-PHONY: all bins docker-bins dots
+.PHONY: all bins docker-bins dots
 
 all: bins docker-bins dots
 
