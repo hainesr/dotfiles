@@ -6,18 +6,18 @@
 # BSD Licenced. See LICENCE for details.
 #
 
+DOTDIR := dot
 bin-dir=$(HOME)/bin
 
-.PHONY: all bins docker-bins dots
+SRCS := $(wildcard $(DOTDIR)/*.sh)
+DOTS := $(patsubst $(DOTDIR)/%.sh, $(DOTDIR)/.%, $(SRCS))
+
+.PHONY: all bins clean docker-bins dots
 
 all: bins docker-bins dots
 
-dots:
-	for file in $(shell git ls-files --exclude-standard -- dot/*); do \
-		full=$$(readlink -f $$file); \
-		name=$$(basename $$file); \
-		ln -sfn $$full $(HOME)/.$$name; \
-	done
+dots: $(DOTS)
+	@install -v -m600 $(DOTS) "$(HOME)"
 
 bins:
 	install -v -m755 -d "$(bin-dir)"
@@ -26,3 +26,11 @@ bins:
 docker-bins:
 	install -v -m755 -d "$(bin-dir)"
 	install -v -m755 docker-bin/* "$(bin-dir)"
+
+clean:
+	@rm -f $(DOTS)
+	@echo REMOVE $(DOTS)
+
+$(DOTDIR)/.%: $(DOTDIR)/%.sh
+	@m4 -DSUB_DOT_PATH=$(PWD) -DSUB_DOT_NAME=$< < templates/dot > $@
+	@echo CREATE $@

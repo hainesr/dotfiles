@@ -1,2 +1,2 @@
-# do not commit dot/extra because it is for private configuration only.
-dot/extra
+# Ignore the built dot files.
+dot/.*

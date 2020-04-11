@@ -1,0 +1,9 @@
+#
+# This is a place-holder to simply source the real dot file. This is done so
+# that local configuration can still be added below without interfering with
+# that which is stored in version control.
+#
+
+source SUB_DOT_PATH/SUB_DOT_NAME
+
+# Local machine set-up should go below this point.
