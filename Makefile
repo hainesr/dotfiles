@@ -12,13 +12,14 @@ DKRDIR := docker-bin
 USRBIN := $(HOME)/bin
 
 TMPDOT := templates/dot
+TMPEXT := templates/extra
 
 SRCS := $(wildcard $(DOTDIR)/*.sh)
 DOTS := $(patsubst $(DOTDIR)/%.sh, $(DOTDIR)/.%, $(SRCS))
 
-.PHONY: all bins clean docker-bins dots
+.PHONY: all bins clean docker-bins dots extra
 
-all: bins docker-bins dots
+all: bins docker-bins dots extra
 
 dots: $(DOTS)
 	@install -v -m600 $(DOTS) "$(HOME)"
@@ -30,6 +31,11 @@ bins:
 docker-bins:
 	@install -v -m755 -d "$(USRBIN)"
 	@install -v -m755 $(DKRDIR)/* "$(USRBIN)"
+
+extra: "$(HOME)/.extra"
+
+"$(HOME)/.extra":
+	@install -v -m600 $(TMPEXT) $@
 
 clean:
 	@rm -f $(DOTS)
