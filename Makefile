@@ -14,15 +14,16 @@ USRBIN := $(HOME)/bin
 TMPDOT := templates/dot
 TMPEXT := templates/extra
 
-SRCS := $(wildcard $(DOTDIR)/*.sh)
-DOTS := $(patsubst $(DOTDIR)/%.sh, $(DOTDIR)/.%, $(SRCS))
+SRCS := $(wildcard $(DOTDIR)/*)
+INTS := $(patsubst $(DOTDIR)/%.sh, $(DOTDIR)/.%, $(filter %.sh, $(SRCS)))
+DOTS := $(patsubst $(DOTDIR)/%.sh, $(HOME)/.%, $(filter %.sh, $(SRCS)))
+CONF := $(patsubst $(DOTDIR)/%, $(HOME)/.%, $(filter-out %.sh, $(SRCS)))
 
 .PHONY: all bins clean docker-bins dots extra
 
-all: bins docker-bins dots extra
+all: bins docker-bins dots
 
-dots: $(DOTS)
-	@install -v -m600 $(DOTS) "$(HOME)"
+dots: $(DOTS) $(CONF) extra
 
 bins:
 	@install -v -m755 -d "$(USRBIN)"
@@ -32,15 +33,24 @@ docker-bins:
 	@install -v -m755 -d "$(USRBIN)"
 	@install -v -m755 $(DKRDIR)/* "$(USRBIN)"
 
-extra: "$(HOME)/.extra"
+extra: $(HOME)/.extra
 
-"$(HOME)/.extra":
+$(HOME)/.extra: $(TMPEXT)
+	@echo -n 'INSTALL '
 	@install -v -m600 $(TMPEXT) $@
 
+$(HOME)/.%: $(DOTDIR)/%
+	@echo -n 'LINK '
+	@ln -sv $(PWD)/$< $@
+
+$(HOME)/.%: $(DOTDIR)/.%
+	@echo -n 'INSTALL '
+	@install -v -m600 $< $(HOME)
+
 clean:
-	@rm -f $(DOTS)
-	@echo REMOVE $(DOTS)
+	@echo CLEAN $(INTS)
+	@rm -f $(INTS)
 
 $(DOTDIR)/.%: $(DOTDIR)/%.sh
-	@m4 -DSUB_DOT_PATH=$(PWD) -DSUB_DOT_NAME=$< < $(TMPDOT) > $@
 	@echo CREATE $@
+	@m4 -DSUB_DOT_PATH=$(PWD) -DSUB_DOT_NAME=$< < $(TMPDOT) > $@
