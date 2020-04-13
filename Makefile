@@ -26,11 +26,15 @@ DBIN := $(patsubst $(DKRDIR)/%, $(USRBIN)/%, $(wildcard $(DKRDIR)/*))
 
 all: bins docker-bins dots
 
-dots: $(DOTS) $(CONF) extra
-
 bins: $(BINS)
 
+clean:
+	@echo CLEAN $(INTS)
+	@rm -f $(INTS)
+
 docker-bins: $(DBIN)
+
+dots: $(DOTS) $(CONF) extra
 
 extra: $(HOME)/.extra
 
@@ -45,10 +49,6 @@ $(HOME)/.%: $(DOTDIR)/%
 $(HOME)/.%: $(DOTDIR)/.%
 	@echo -n 'INSTALL '
 	@install -v -m600 $< $(HOME)
-
-clean:
-	@echo CLEAN $(INTS)
-	@rm -f $(INTS)
 
 $(DOTDIR)/.%: $(DOTDIR)/%.sh
 	@echo CREATE $@
