@@ -19,19 +19,18 @@ INTS := $(patsubst $(DOTDIR)/%.sh, $(DOTDIR)/.%, $(filter %.sh, $(SRCS)))
 DOTS := $(patsubst $(DOTDIR)/%.sh, $(HOME)/.%, $(filter %.sh, $(SRCS)))
 CONF := $(patsubst $(DOTDIR)/%, $(HOME)/.%, $(filter-out %.sh, $(SRCS)))
 
+BINS := $(patsubst $(BINDIR)/%, $(USRBIN)/%, $(wildcard $(BINDIR)/*))
+DBIN := $(patsubst $(DKRDIR)/%, $(USRBIN)/%, $(wildcard $(DKRDIR)/*))
+
 .PHONY: all bins clean docker-bins dots extra
 
 all: bins docker-bins dots
 
 dots: $(DOTS) $(CONF) extra
 
-bins:
-	@install -v -m755 -d "$(USRBIN)"
-	@install -v -m755 $(BINDIR)/* "$(USRBIN)"
+bins: $(BINS)
 
-docker-bins:
-	@install -v -m755 -d "$(USRBIN)"
-	@install -v -m755 $(DKRDIR)/* "$(USRBIN)"
+docker-bins: $(DBIN)
 
 extra: $(HOME)/.extra
 
@@ -54,3 +53,15 @@ clean:
 $(DOTDIR)/.%: $(DOTDIR)/%.sh
 	@echo CREATE $@
 	@m4 -DSUB_DOT_PATH=$(PWD) -DSUB_DOT_NAME=$< < $(TMPDOT) > $@
+
+$(USRBIN)/%: $(BINDIR)/% | $(USRBIN)
+	@echo -n 'INSTALL '
+	@install -v -m755 $< $@
+
+$(USRBIN)/%: $(DKRDIR)/% | $(USRBIN)
+	@echo -n 'INSTALL '
+	@install -v -m755 $< $@
+
+$(USRBIN):
+	@echo -n 'INSTALL '
+	@install -v -m755 -d "$(USRBIN)"
