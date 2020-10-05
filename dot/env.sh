@@ -12,6 +12,11 @@
 export EDITOR=vi
 export VISUAL=vi
 
+# GitHub CLI
+
+# Turn on bash completion
+eval "$(gh completion -s bash)"
+
 # Python
 
 # From https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-virtual-environment-for-pip
