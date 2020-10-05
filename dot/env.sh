@@ -15,7 +15,9 @@ export VISUAL=vi
 # GitHub CLI
 
 # Turn on bash completion
-eval "$(gh completion -s bash)"
+if [ -x "$(command -v gh)" ]; then
+  eval "$(gh completion -s bash)"
+fi
 
 # Python
 
