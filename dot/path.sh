@@ -21,6 +21,10 @@ if [[ -d /opt/homebrew/opt/coreutils/libexec/gnubin ]]; then
   PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
+if [[ -d /opt/homebrew/opt/gnupg@2.2/bin ]]; then
+  PATH="/opt/homebrew/opt/gnupg@2.2/bin:$PATH"
+fi
+
 #
 # Manage the main PATH variable here.
 #
