@@ -8,6 +8,11 @@ case $- in
       *) return;;
 esac
 
+# Set up Homebrew here if it's present.
+if [[ -d /opt/homebrew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -37,12 +42,16 @@ for file in ~/.{prompt,aliases,path,env,bash_funcs,extra}; do
 done
 unset file
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# Make `less`` more friendly for non-text input files, see lesspipe(1).
+if [[ -x "$(command -v lesspipe)" ]]; then
+  eval "$(SHELL=/bin/sh lesspipe)"
+elif [[ -x "$(command -v lesspipe.sh)" ]]; then
+  eval "$(SHELL=/bin/sh lesspipe.sh)"
+fi
 
-# enable color support of ls
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+# Enable color support of ls.
+if [[ -x "$(command -v dircolors)" ]]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -53,5 +62,7 @@ if ! shopt -oq posix; then
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  elif [ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+    . /opt/homebrew/etc/profile.d/bash_completion.sh
   fi
 fi

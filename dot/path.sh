@@ -14,6 +14,13 @@ NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 
 export NODE_PATH
 
+# Homebrew (MacOS).
+
+if [[ -d /opt/homebrew/opt/coreutils/libexec/gnubin ]]; then
+  # Proper coreutils for the Mac.
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
 #
 # Manage the main PATH variable here.
 #
