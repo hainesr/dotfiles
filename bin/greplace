@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# A sort of find/replace across multiple files. Quite useful for small
+# changes in many files, such as changing the copyright year across a
+# whole codebase. Changes are ultimately made in place, so this is a
+# destructive action. USE WITH CAUTION!
+#
+# Usage: greplace xxx yyy file1 [file2 ... fileN]
+#   Replaces all occurences of xxx with yyy in all files.
+#
+
+FROM=$1
+TO=$2
+
+shift
+shift
+
+for i in $*
+do
+    cat $i | sed -e "s?$FROM?$TO?g" > $i.new
+    chmod --reference=$i $i.new
+    mv -f $i.new $i
+done

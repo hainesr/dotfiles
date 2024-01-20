@@ -25,6 +25,17 @@ Current wrappers are: `anaconda`, `jekyll`, `mencoder`, `p4merge`, `xnview`.
 
 A convenience script to clean up old/stale containers and images.
 
+#### greplace
+
+A sort of find/replace across multiple files. Quite useful for small changes in many files, such as changing the copyright year across a whole codebase. Changes are ultimately made in place, so this is a destructive action. **USE WITH CAUTION!**
+
+*Usage:*
+```shell
+$ greplace xxx yyy file1 [file2 ... fileN]
+```
+
+Replaces all occurences of `xxx` with `yyy` in all files.
+
 #### progress
 
 For each line of input (stdin) output a 'dot'. This is useful for monitoring the progress of a long running operation, without seeing all of its output streaming past.
