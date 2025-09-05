@@ -17,3 +17,6 @@
 # Dropbox config
 .dropbox
 desktop.ini
+
+# MacOS nonsense
+.DS_Store
