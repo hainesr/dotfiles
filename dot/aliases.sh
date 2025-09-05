@@ -38,8 +38,11 @@ alias ssh='ssh -2 -A -Y'
 alias grep='grep -n --color=auto'
 
 # I like the old ways.
-alias dos2unix='fromdos'
-alias unix2dos='todos'
+if [[ -x `which fromdos` ]]
+then
+  alias dos2unix='fromdos'
+  alias unix2dos='todos'
+fi
 
 # I only ever use gitk --all.
 alias gitk='gitk --all'
